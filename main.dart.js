@@ -38229,7 +38229,7 @@ return A.AZ(A.ans(s,A.a1s(this.d,s,s,35),this.e,s,s),this.c)}}
 A.qB.prototype={
 L(a){return A.t9(A.EY(a),B.AR)}}
 A.IY.prototype={
-L(a){return new A.ro(this.c,"Flutter Demo",A.AQ(null,A.aAZ(B.J,B.KD),new A.o(4279638045),!0),null)}}
+L(a){return new A.ro(this.c,"Call List",A.AQ(null,A.aAZ(B.J,B.KD),new A.o(4279638045),!0),null)}}
 A.a62.prototype={
 $2(a,b){return B.KM},
 $S:260}
