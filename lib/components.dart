@@ -37,7 +37,6 @@ PreferredSizeWidget getAppBAr(
               child: Container(
                 color: Colors.blue,
                 width: 700,
-                // child: Text('Constrained Box Example'),
               ),
             ),
             Row(
