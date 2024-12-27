@@ -29,29 +29,27 @@ PreferredSizeWidget getAppBAr(
     // the App.build method, and use it to set our appbar title.
     title: Padding(
       padding: EdgeInsets.symmetric(vertical: 100),
-      child: Wrap(
-          // mainAxisAlignment: MainAxisAlignment.center,
+      child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+        const HomeLogoWidget(),
+        // Flexible(
+        //   child: Container(
+        //     color: Colors.blue,
+        //     width: 700,
+        //   ),
+        // ),
+        Row(
+          mainAxisSize: MainAxisSize.min,
           children: [
-            const HomeLogoWidget(),
-            Flexible(
-              child: Container(
-                color: Colors.blue,
-                width: 700,
-              ),
+            AppBarAction(
+              icon: Icons.email_outlined,
+              toolTip: "contact",
+              onPressed: () {
+                context.go(ContactScreen.path);
+              },
             ),
-            Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                AppBarAction(
-                  icon: Icons.email_outlined,
-                  toolTip: "contact",
-                  onPressed: () {
-                    context.go(ContactScreen.path);
-                  },
-                ),
-              ],
-            )
-          ]),
+          ],
+        )
+      ]),
     ),
   );
 }
