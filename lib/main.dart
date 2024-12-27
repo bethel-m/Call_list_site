@@ -240,7 +240,7 @@ class AppStoresActions extends StatelessWidget {
         children: [
           AppStoreWidget(),
           SizedBox(
-            width: 24,
+            width: 16,
           ),
           PlayStoreWidget(),
         ],
