@@ -24,52 +24,17 @@ final Widget svg = SvgPicture.asset(
 );
 final Widget playstore = SvgPicture.asset(
   'assets/svg/play-store.svg',
-  semanticsLabel: 'get on play store',
+  semanticsLabel: 'Dart Logo',
   width: 50,
   height: 50,
 );
 final Widget appstore = SvgPicture.asset(
   'assets/svg/apple_logo.svg',
-  semanticsLabel: 'get on app store',
+  semanticsLabel: 'Dart Logo',
   // colorFilter: ColorFilter.mode(Colors.white, BlendMode.color),
   width: 50,
   height: 50,
 );
-
-class StoreLogo extends StatelessWidget {
-  const StoreLogo({
-    super.key,
-    required this.path,
-    required this.semanticsLabel,
-  });
-
-  final String path;
-  final String semanticsLabel;
-  @override
-  Widget build(BuildContext context) {
-    return LayoutBuilder(
-      builder: (context, constraints) {
-        if (constraints.maxWidth < 600) {
-          return SvgPicture.asset(
-            path,
-            semanticsLabel: semanticsLabel,
-            // colorFilter: ColorFilter.mode(Colors.white, BlendMode.color),
-            width: 30,
-            height: 30,
-          );
-        } else {
-          return SvgPicture.asset(
-            path,
-            semanticsLabel: semanticsLabel,
-            // colorFilter: ColorFilter.mode(Colors.white, BlendMode.color),
-            width: 50,
-            height: 50,
-          );
-        }
-      },
-    );
-  }
-}
 
 class MyApp extends StatelessWidget {
   MyApp({super.key});
@@ -269,15 +234,18 @@ class AppStoresActions extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Row(
+      //  alignment: WrapAlignment.center,
+      // runAlignment: WrapAlignment.center,
+      // crossAxisAlignment: WrapCrossAlignment.center,
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Padding(
           padding: EdgeInsets.symmetric(horizontal: 8),
-          child: AppStoreWidget(),
+          child: PlayStoreWidget(),
         ),
         Padding(
           padding: EdgeInsets.symmetric(horizontal: 8),
-          child: PlayStoreWidget(),
+          child: AppStoreWidget(),
         ),
       ],
     );
@@ -395,11 +363,9 @@ class _PlayStoreWidgetState extends State<PlayStoreWidget> {
                 ),
               ],
             ),
-            child: const Row(
+            child: Row(
               children: [
-                const StoreLogo(
-                    path: 'assets/svg/play-store.svg',
-                    semanticsLabel: 'get on play store'),
+                playstore,
                 const SizedBox(width: 12),
                 const Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -408,7 +374,14 @@ class _PlayStoreWidgetState extends State<PlayStoreWidget> {
                       "GET IT ON",
                       style: TextStyle(color: Colors.white),
                     ),
-                    AppStoreText(storeText: "Play Store"),
+                    Text(
+                      "Play Store",
+                      style: TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
+                    ),
                   ],
                 ),
               ],
@@ -475,12 +448,9 @@ class _AppStoreWidgetState extends State<AppStoreWidget> {
                     ),
                   ],
                 ),
-                child: const Row(
+                child: Row(
                   children: [
-                    const StoreLogo(
-                        path: 'assets/svg/apple_logo.svg',
-                        semanticsLabel: 'get on app store'),
-                    // appstore,
+                    appstore,
                     const SizedBox(width: 12),
                     const Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -489,7 +459,13 @@ class _AppStoreWidgetState extends State<AppStoreWidget> {
                           "Download on the",
                           style: TextStyle(color: Colors.white),
                         ),
-                        AppStoreText(storeText: "App Store"),
+                        Text(
+                          "App Store",
+                          style: TextStyle(
+                              fontSize: 24,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white),
+                        ),
                       ],
                     ),
                   ],
@@ -518,34 +494,6 @@ class _AppStoreWidgetState extends State<AppStoreWidget> {
           ),
         ),
       ],
-    );
-  }
-}
-
-class AppStoreText extends StatelessWidget {
-  const AppStoreText({
-    super.key,
-    required this.storeText,
-  });
-  final String storeText;
-  @override
-  Widget build(BuildContext context) {
-    return LayoutBuilder(
-      builder: (context, constraints) {
-        if (constraints.maxWidth < 600) {
-          return Text(
-            storeText,
-            style: const TextStyle(
-                fontSize: 24, fontWeight: FontWeight.bold, color: Colors.white),
-          );
-        } else {
-          return Text(
-            storeText,
-            style: const TextStyle(
-                fontSize: 24, fontWeight: FontWeight.bold, color: Colors.white),
-          );
-        }
-      },
     );
   }
 }
