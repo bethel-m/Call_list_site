@@ -175,14 +175,25 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           Padding(
             padding: EdgeInsetsDirectional.symmetric(vertical: 24),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+            child: Wrap(
+              alignment: WrapAlignment.center,
+              runAlignment: WrapAlignment.center,
+              crossAxisAlignment: WrapCrossAlignment.center,
+              // mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const Text(
                   "©Bethel  2025",
                   style: TextStyle(
                     color: Colors.white,
                   ),
+                ),
+                const SizedBox(width: 24),
+                BottomLink(
+                  tooltip: "https/callList/Contact",
+                  linkName: "Contact",
+                  onPressed: () {
+                    context.go(ContactScreen.path);
+                  },
                 ),
                 const SizedBox(width: 24),
                 BottomLink(
