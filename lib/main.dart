@@ -69,7 +69,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp.router(
       routerConfig: _router,
-      title: 'Flutter Demo',
+      title: 'Call List',
       theme: ThemeData(
         scaffoldBackgroundColor: Color(0xFF16181D),
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
