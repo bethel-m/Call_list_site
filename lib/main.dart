@@ -404,70 +404,93 @@ class _AppStoreWidgetState extends State<AppStoreWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {},
-      child: MouseRegion(
-        cursor: SystemMouseCursors.click,
-        onHover: (event) => {
-          setState(() {
-            isHovering = true;
-          })
-        },
-        onExit: (event) {
-          setState(() {
-            isHovering = false;
-          });
-        },
-        onEnter: (event) {},
-        child: Tooltip(
-          message: "App Store",
-          child: AnimatedContainer(
-            duration: Durations.short4,
-            padding: EdgeInsets.symmetric(
-              horizontal: isHovering ? 20 : 16,
-              vertical: 8,
-            ),
-            decoration: BoxDecoration(
-              color: Colors.black,
-              border: Border.all(
-                  color: isHovering
-                      ? Colors.white
-                      : const Color.fromARGB(255, 167, 158, 158)),
-              borderRadius: BorderRadius.circular(16),
-              boxShadow: [
-                BoxShadow(
-                  color:
-                      const Color.fromARGB(255, 255, 255, 255).withOpacity(0.1),
-                  blurRadius: isHovering ? 8 : 0,
-                  offset: Offset(0, isHovering ? 4 : 0),
+    return Stack(
+      children: [
+        GestureDetector(
+          onTap: () {},
+          child: MouseRegion(
+            cursor: SystemMouseCursors.click,
+            onHover: (event) => {
+              setState(() {
+                isHovering = true;
+              })
+            },
+            onExit: (event) {
+              setState(() {
+                isHovering = false;
+              });
+            },
+            onEnter: (event) {},
+            child: Tooltip(
+              message: "App Store -- coming soon",
+              child: AnimatedContainer(
+                duration: Durations.short4,
+                padding: EdgeInsets.symmetric(
+                  horizontal: isHovering ? 20 : 16,
+                  vertical: 8,
                 ),
-              ],
-            ),
-            child: Row(
-              children: [
-                appstore,
-                const SizedBox(width: 12),
-                const Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      "Download on the",
-                      style: TextStyle(color: Colors.white),
-                    ),
-                    Text(
-                      "App Store",
-                      style: TextStyle(
-                          fontSize: 24,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white),
+                decoration: BoxDecoration(
+                  color: Colors.black,
+                  border: Border.all(
+                      color: isHovering
+                          ? Colors.white
+                          : const Color.fromARGB(255, 167, 158, 158)),
+                  borderRadius: BorderRadius.circular(16),
+                  boxShadow: [
+                    BoxShadow(
+                      color: const Color.fromARGB(255, 255, 255, 255)
+                          .withOpacity(0.1),
+                      blurRadius: isHovering ? 8 : 0,
+                      offset: Offset(0, isHovering ? 4 : 0),
                     ),
                   ],
                 ),
-              ],
+                child: Row(
+                  children: [
+                    appstore,
+                    const SizedBox(width: 12),
+                    const Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Download on the",
+                          style: TextStyle(color: Colors.white),
+                        ),
+                        Text(
+                          "App Store",
+                          style: TextStyle(
+                              fontSize: 24,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
             ),
           ),
         ),
-      ),
+        // Positioned widget to make overlay cover the entire button
+        Positioned.fill(
+          child: Container(
+            decoration: BoxDecoration(
+              color: Colors.black.withOpacity(0.7),
+              borderRadius: BorderRadius.circular(16),
+            ),
+            child: const Center(
+              child: Text(
+                'Coming Soon',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 14,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+          ),
+        ),
+      ],
     );
   }
 }
