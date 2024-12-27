@@ -15,7 +15,7 @@ void main() {
   runApp(MyApp());
 }
 
-const String assetName = 'svg/my_icon.svg';
+const String assetName = 'assets/svg/my_icon.svg';
 final Widget svg = SvgPicture.asset(
   assetName,
   semanticsLabel: 'Dart Logo',
@@ -23,13 +23,13 @@ final Widget svg = SvgPicture.asset(
   height: 50,
 );
 final Widget playstore = SvgPicture.asset(
-  'svg/play-store.svg',
+  'assets/svg/play-store.svg',
   semanticsLabel: 'Dart Logo',
   width: 50,
   height: 50,
 );
 final Widget appstore = SvgPicture.asset(
-  'svg/apple_logo.svg',
+  'assets/svg/apple_logo.svg',
   semanticsLabel: 'Dart Logo',
   // colorFilter: ColorFilter.mode(Colors.white, BlendMode.color),
   width: 50,
@@ -266,7 +266,7 @@ class AppImagesWidget extends StatelessWidget {
     return LayoutBuilder(builder: (context, constraints) {
       if (constraints.maxWidth < 600) {
         return const Center(
-          child: SampleImage("images/list.png"),
+          child: SampleImage("assets/images/list.png"),
         );
       } else {
         return const Row(
@@ -274,11 +274,11 @@ class AppImagesWidget extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SampleImage("images/list.png"),
+            SampleImage("assets/images/list.png"),
             SizedBox(
               width: 12,
             ),
-            SampleImage("images/detail.png"),
+            SampleImage("assets/images/detail.png"),
           ],
         );
       }

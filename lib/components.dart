@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 
-const String assetName = 'svg/my_icon.svg';
+const String assetName = 'assets/svg/my_icon.svg';
 final Widget svg = SvgPicture.asset(
   assetName,
   semanticsLabel: 'Dart Logo',
