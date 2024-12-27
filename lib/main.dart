@@ -233,21 +233,41 @@ class AppStoresActions extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Row(
-      //  alignment: WrapAlignment.center,
-      // runAlignment: WrapAlignment.center,
-      // crossAxisAlignment: WrapCrossAlignment.center,
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Padding(
-          padding: EdgeInsets.symmetric(horizontal: 8),
-          child: PlayStoreWidget(),
-        ),
-        Padding(
-          padding: EdgeInsets.symmetric(horizontal: 8),
-          child: AppStoreWidget(),
-        ),
-      ],
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        if (constraints.maxWidth < 600) {
+          return const Column(
+            //  alignment: WrapAlignment.center,
+            // runAlignment: WrapAlignment.center,
+            // crossAxisAlignment: WrapCrossAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              PlayStoreWidget(),
+              SizedBox(
+                height: 12,
+              ),
+              AppStoreWidget(),
+            ],
+          );
+        } else {
+          return const Row(
+            //  alignment: WrapAlignment.center,
+            // runAlignment: WrapAlignment.center,
+            // crossAxisAlignment: WrapCrossAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 8),
+                child: PlayStoreWidget(),
+              ),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 8),
+                child: AppStoreWidget(),
+              ),
+            ],
+          );
+        }
+      },
     );
   }
 }
@@ -342,51 +362,52 @@ class _PlayStoreWidgetState extends State<PlayStoreWidget> {
         child: Tooltip(
           message: "Google play store",
           child: AnimatedContainer(
-            duration: Durations.short4,
-            padding: EdgeInsets.symmetric(
-              horizontal: isHovering ? 20 : 16,
-              vertical: 8,
-            ),
-            decoration: BoxDecoration(
-              color: Colors.black,
-              border: Border.all(
-                  color: isHovering
-                      ? Colors.white
-                      : const Color.fromARGB(255, 167, 158, 158)),
-              borderRadius: BorderRadius.circular(16),
-              boxShadow: [
-                BoxShadow(
-                  color:
-                      const Color.fromARGB(255, 255, 255, 255).withOpacity(0.1),
-                  blurRadius: isHovering ? 8 : 0,
-                  offset: Offset(0, isHovering ? 4 : 0),
-                ),
-              ],
-            ),
-            child: Row(
-              children: [
-                playstore,
-                const SizedBox(width: 12),
-                const Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      "GET IT ON",
-                      style: TextStyle(color: Colors.white),
-                    ),
-                    Text(
-                      "Play Store",
-                      style: TextStyle(
-                        fontSize: 24,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
+              duration: Durations.short4,
+              padding: EdgeInsets.symmetric(
+                horizontal: isHovering ? 20 : 16,
+                vertical: 8,
+              ),
+              decoration: BoxDecoration(
+                color: Colors.black,
+                border: Border.all(
+                    color: isHovering
+                        ? Colors.white
+                        : Color.fromARGB(255, 82, 41, 41)),
+                borderRadius: BorderRadius.circular(16),
+                boxShadow: [
+                  BoxShadow(
+                    color: const Color.fromARGB(255, 255, 255, 255)
+                        .withOpacity(0.1),
+                    blurRadius: isHovering ? 8 : 0,
+                    offset: Offset(0, isHovering ? 4 : 0),
+                  ),
+                ],
+              ),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  playstore,
+                  const SizedBox(width: 12),
+                  const Column(
+                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "GET IT ON",
+                        style: TextStyle(color: Colors.white),
                       ),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          ),
+                      Text(
+                        "Play Store",
+                        style: TextStyle(
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              )),
         ),
       ),
     );
@@ -449,11 +470,13 @@ class _AppStoreWidgetState extends State<AppStoreWidget> {
                   ],
                 ),
                 child: Row(
+                  mainAxisSize: MainAxisSize.min,
                   children: [
                     appstore,
                     const SizedBox(width: 12),
                     const Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisSize: MainAxisSize.min,
                       children: [
                         Text(
                           "Download on the",
