@@ -125,8 +125,8 @@ class _MyHomePageState extends State<MyHomePage> {
       body: ListView(
         //shrinkWrap: true,
         // mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          const Align(
+        children: const <Widget>[
+          Align(
               child: Column(
             children: [
               SizedBox(
@@ -150,80 +150,101 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ],
           )),
-          const Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const AppStoreWidget(),
-              const SizedBox(width: 12),
-              const PlayStoreWidget(),
-            ],
-          ),
-          const SizedBox(
+          AppStoresActions(),
+          SizedBox(
             height: 16,
           ),
-          const AppImagesWidget(),
-          const FeaturesListing(
+          AppImagesWidget(),
+          FeaturesListing(
             items: features,
           ),
-          const Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const AppStoreWidget(),
-              const SizedBox(width: 12),
-              const PlayStoreWidget(),
-            ],
-          ),
-          Padding(
-            padding: EdgeInsetsDirectional.symmetric(vertical: 24),
-            child: Wrap(
-              alignment: WrapAlignment.center,
-              runAlignment: WrapAlignment.center,
-              crossAxisAlignment: WrapCrossAlignment.center,
-              // mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const Text(
-                  "©Bethel  2025",
-                  style: TextStyle(
-                    color: Colors.white,
-                  ),
-                ),
-                const SizedBox(width: 24),
-                BottomLink(
-                  tooltip: "https/callList/Contact",
-                  linkName: "Contact",
-                  onPressed: () {
-                    context.go(ContactScreen.path);
-                  },
-                ),
-                const SizedBox(width: 24),
-                BottomLink(
-                  tooltip: "https/callList/ChangeLog",
-                  linkName: "Change Log",
-                  onPressed: () {
-                    context.go(ChangeLogScreen.path);
-                  },
-                ),
-                const SizedBox(width: 24),
-                BottomLink(
-                  tooltip: "https/callList/Privacy",
-                  linkName: "Privacy",
-                  onPressed: () {
-                    context.go(PrivacyScreen.path);
-                  },
-                ),
-                const SizedBox(width: 24),
-                BottomLink(
-                  tooltip: "https/callList/TermsAndConditions",
-                  linkName: "TOS",
-                  onPressed: () {
-                    context.go(TermsAndConditionsScreen.path);
-                  },
-                ),
-              ],
-            ),
-          ),
+          AppStoresActions(),
+          BottomPageActions(),
         ],
       ), // This trailing comma makes auto-formatting nicer for build methods.
+    );
+  }
+}
+
+class BottomPageActions extends StatelessWidget {
+  const BottomPageActions({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding:
+          const EdgeInsetsDirectional.symmetric(vertical: 24, horizontal: 16),
+      child: Wrap(
+        alignment: WrapAlignment.center,
+        runAlignment: WrapAlignment.center,
+        crossAxisAlignment: WrapCrossAlignment.center,
+        // mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          const Text(
+            "©Bethel  2025",
+            style: TextStyle(
+              color: Colors.white,
+            ),
+          ),
+          const SizedBox(width: 24),
+          BottomLink(
+            tooltip: "https/callList/Contact",
+            linkName: "Contact",
+            onPressed: () {
+              context.go(ContactScreen.path);
+            },
+          ),
+          const SizedBox(width: 24),
+          BottomLink(
+            tooltip: "https/callList/ChangeLog",
+            linkName: "Change Log",
+            onPressed: () {
+              context.go(ChangeLogScreen.path);
+            },
+          ),
+          const SizedBox(width: 24),
+          BottomLink(
+            tooltip: "https/callList/Privacy",
+            linkName: "Privacy",
+            onPressed: () {
+              context.go(PrivacyScreen.path);
+            },
+          ),
+          const SizedBox(width: 24),
+          BottomLink(
+            tooltip: "https/callList/TermsAndConditions",
+            linkName: "TOS",
+            onPressed: () {
+              context.go(TermsAndConditionsScreen.path);
+            },
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class AppStoresActions extends StatelessWidget {
+  const AppStoresActions({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return const Padding(
+      padding: EdgeInsets.symmetric(horizontal: 16),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          AppStoreWidget(),
+          SizedBox(
+            width: 24,
+          ),
+          PlayStoreWidget(),
+        ],
+      ),
     );
   }
 }
