@@ -16,6 +16,7 @@ PreferredSizeWidget getAppBAr(
   BuildContext context,
 ) {
   return AppBar(
+    automaticallyImplyLeading: false,
     scrolledUnderElevation: 0,
     foregroundColor: Colors.white,
     toolbarHeight: 100,
