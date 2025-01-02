@@ -9,8 +9,14 @@ if (!window._flutter) {
 _flutter.buildConfig = {"engineRevision":"edd8546116457bdf1c5bdfb13ecb9463d2bb5ed4","builds":[{"compileTarget":"dart2js","renderer":"canvaskit","mainJsPath":"main.dart.js"}]};
 
 
+// Customize the app initialization process
 _flutter.loader.load({
-  serviceWorkerSettings: {
-    serviceWorkerVersion: "3385965097"
-  }
+    onEntrypointLoaded: async function(engineInitializer) {
+        const appRunner = await engineInitializer.initializeEngine({
+            useColorEmoji: true
+        });
+
+        await appRunner.runApp();
+    }
+
 });
