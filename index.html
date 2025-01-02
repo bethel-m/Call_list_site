@@ -31,6 +31,13 @@
 
   <title>call_list_site</title>
   <link rel="manifest" href="manifest.json">
+  <script>
+    if (window.location.pathname !== '/') {
+      // Pass the path to the Flutter app
+      window.history.replaceState({}, '', window.location.pathname + window.location.search);
+    }
+  </script>
+  
 </head>
 <body>
   <script src="flutter_bootstrap.js" async></script>
