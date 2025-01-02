@@ -1,10 +1,10 @@
-import 'package:call_list_site/NotFoundPage.dart';
+import 'package:call_list_site/not_found_page.dart';
 import 'package:call_list_site/change_log.dart';
 import 'package:call_list_site/components.dart';
 import 'package:call_list_site/contacts.dart';
-import 'package:call_list_site/navigation.dart';
+
 import 'package:call_list_site/privacy_screen.dart';
-import 'package:call_list_site/tos_Screen.dart';
+import 'package:call_list_site/tos_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:flutter_web_plugins/flutter_web_plugins.dart';
@@ -75,7 +75,7 @@ class MyApp extends StatelessWidget {
               bodyColor: Colors.white,
               displayColor: Colors.white,
             ),
-        scaffoldBackgroundColor: Color(0xFF16181D),
+        scaffoldBackgroundColor: const Color(0xFF16181D),
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
@@ -103,19 +103,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -379,7 +366,7 @@ class _PlayStoreWidgetState extends State<PlayStoreWidget> {
                 border: Border.all(
                     color: isHovering
                         ? Colors.white
-                        : Color.fromARGB(255, 82, 41, 41)),
+                        : const Color.fromARGB(255, 82, 41, 41)),
                 borderRadius: BorderRadius.circular(16),
                 boxShadow: [
                   BoxShadow(
@@ -635,9 +622,9 @@ class FeaturesListing extends StatelessWidget {
   final List<Widget> items;
 
   const FeaturesListing({
-    Key? key,
+    super.key,
     required this.items,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

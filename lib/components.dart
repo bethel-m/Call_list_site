@@ -1,6 +1,6 @@
 import 'package:call_list_site/contacts.dart';
 import 'package:call_list_site/main.dart';
-import 'package:call_list_site/privacy_screen.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
@@ -24,11 +24,11 @@ PreferredSizeWidget getAppBAr(
     // TRY THIS: Try changing the color here to a specific color (to
     // Colors.amber, perhaps?) and trigger a hot reload to see the AppBar
     // change color while the other colors stay the same.
-    backgroundColor: Color(0xFF16181D),
+    backgroundColor: const Color(0xFF16181D),
     // Here we take the value from the MyHomePage object that was created by
     // the App.build method, and use it to set our appbar title.
     title: Padding(
-      padding: EdgeInsets.symmetric(vertical: 100),
+      padding: const EdgeInsets.symmetric(vertical: 100),
       child: Center(
         child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
           const HomeLogoWidget(),

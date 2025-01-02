@@ -24,94 +24,97 @@ class ContactScreen extends StatelessWidget {
         child: SizedBox(
           width: 600,
           child: SingleChildScrollView(
-            child: Column(
-              children: [
-                ClipOval(
-                  child: Image.asset(
-                    "assets/images/pic.jpg",
-                    width: 200,
-                    height: 200,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: Column(
+                children: [
+                  ClipOval(
+                    child: Image.asset(
+                      "assets/images/pic.jpg",
+                      width: 200,
+                      height: 200,
+                    ),
                   ),
-                ),
-                const Text("Hello 👋, I am Bethel",
+                  const Text("Hello 👋, I am Bethel",
+                      style: TextStyle(
+                        fontSize: 50,
+                        fontWeight: FontWeight.bold,
+                      )),
+                  const SizedBox(
+                    height: 12,
+                  ),
+                  const Text(
+                    "I am a mobile developer. I believe solving problems is important, especially little problems because you might not be the only one facing it, and sometimes small problems become big problems when ignored",
+                    style: TextStyle(color: Color.fromARGB(255, 191, 191, 192)),
+                  ),
+                  const SizedBox(
+                    height: 12,
+                  ),
+                  RichText(
+                    text: const TextSpan(
+                      children: [
+                        TextSpan(
+                          text:
+                              "i created this app because i could be quite forgetfull about calls i want to make ",
+                          style: TextStyle(
+                              color: Color.fromARGB(255, 191, 191, 192)),
+                        ),
+                        TextSpan(
+                          text: '🙂', // emoji
+                          style: TextStyle(
+                            fontSize: 24,
+                          ), // null color preserves emoji colors
+                        ),
+                        TextSpan(
+                          text:
+                              "and guess what its not just me, alot of people are like that",
+                          style: TextStyle(
+                              color: Color.fromARGB(255, 191, 191, 192)),
+                        ),
+                        TextSpan(
+                          text: ' 😅', // emoji
+                          style: TextStyle(
+                            fontSize: 24,
+                          ), // null color preserves emoji colors
+                        ),
+                        TextSpan(
+                          text: ", so i created this app to help me remember",
+                          style: TextStyle(
+                              color: Color.fromARGB(255, 191, 191, 192)),
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 32,
+                  ),
+                  const Text(
+                    "If you have feedback or questions, or you want to reach out to me , you can through: ",
                     style: TextStyle(
-                      fontSize: 50,
-                      fontWeight: FontWeight.bold,
-                    )),
-                const SizedBox(
-                  height: 12,
-                ),
-                const Text(
-                  "I am a mobile developer. I believe solving problems is important, especially little problems because you might not be the only one facing it, and sometimes small problems become big problems when ignored",
-                  style: TextStyle(color: Color.fromARGB(255, 191, 191, 192)),
-                ),
-                const SizedBox(
-                  height: 12,
-                ),
-                RichText(
-                  text: const TextSpan(
+                      color: Color.fromARGB(255, 191, 191, 192),
+                    ),
+                  ),
+                  Column(
                     children: [
-                      TextSpan(
-                        text:
-                            "i created this app because i could be quite forgetfull about calls i want to make ",
-                        style: TextStyle(
-                            color: Color.fromARGB(255, 191, 191, 192)),
+                      ContactButton(
+                        title: "twitter",
+                        tooltip: _twitter,
+                        onPressed: () {
+                          _launchUrl(_twitter);
+                        },
                       ),
-                      TextSpan(
-                        text: '🙂', // emoji
-                        style: TextStyle(
-                          fontSize: 24,
-                        ), // null color preserves emoji colors
-                      ),
-                      TextSpan(
-                        text:
-                            "and guess what its not just me, alot of people are like that",
-                        style: TextStyle(
-                            color: Color.fromARGB(255, 191, 191, 192)),
-                      ),
-                      TextSpan(
-                        text: ' 😅', // emoji
-                        style: TextStyle(
-                          fontSize: 24,
-                        ), // null color preserves emoji colors
-                      ),
-                      TextSpan(
-                        text: ", so i created this app to help me remember",
-                        style: TextStyle(
-                            color: Color.fromARGB(255, 191, 191, 192)),
+                      ContactButton(
+                        tooltip: _mail,
+                        title: "email",
+                        onPressed: () {
+                          _launchUrl(_mail);
+                        },
                       ),
                     ],
                   ),
-                ),
-                const SizedBox(
-                  height: 32,
-                ),
-                const Text(
-                  "If you have feedback or questions, or you want to reach out to me , you can through: ",
-                  style: TextStyle(
-                    color: Color.fromARGB(255, 191, 191, 192),
-                  ),
-                ),
-                Column(
-                  children: [
-                    ContactButton(
-                      title: "twitter",
-                      tooltip: _twitter,
-                      onPressed: () {
-                        _launchUrl(_twitter);
-                      },
-                    ),
-                    ContactButton(
-                      tooltip: _mail,
-                      title: "email",
-                      onPressed: () {
-                        _launchUrl(_mail);
-                      },
-                    ),
-                  ],
-                ),
-                const BottomPageActions()
-              ],
+                  const BottomPageActions()
+                ],
+              ),
             ),
           ),
         ),

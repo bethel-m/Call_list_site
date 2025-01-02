@@ -9,12 +9,12 @@ class PrivacyScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: getAppBAr(context),
-      body: const Padding(
-        padding: EdgeInsets.symmetric(horizontal: 16),
-        child: SingleChildScrollView(
-          child: Center(
-            child: SizedBox(
-              width: 600,
+      body: const SingleChildScrollView(
+        child: Center(
+          child: SizedBox(
+            width: 600,
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 16),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 mainAxisSize: MainAxisSize.min,
