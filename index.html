@@ -28,7 +28,16 @@
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="my_icon.svg"/>
-
+  <script>
+    // Check if we have a redirect stored
+    window.addEventListener('load', function() {
+      var redirect = sessionStorage.getItem('redirect');
+      if (redirect) {
+        sessionStorage.removeItem('redirect');
+        window.history.replaceState(null, null, redirect);
+      }
+    });
+  </script>
   <title>call_list_site</title>
   <link rel="manifest" href="manifest.json">
 </head>

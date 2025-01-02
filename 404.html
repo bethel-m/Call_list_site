@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-        <script type="text/javascript">
-        // Redirect unmatched paths to index.html
-        window.location.href = "/Call_list_site/index.html";
-    </script>
+    <script>
+        // Store the pathname in sessionStorage
+        sessionStorage.setItem('redirect', window.location.pathname);
+        // Redirect to the root
+        window.location.href = '/';
+      </script>
 </head>
 <body>
 </body>
