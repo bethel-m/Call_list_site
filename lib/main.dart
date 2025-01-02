@@ -123,21 +123,59 @@ class _MyHomePageState extends State<MyHomePage> {
               SizedBox(
                 height: 60,
               ),
-              Text(
-                "Get Reminded to call",
-                style: TextStyle(
-                  fontSize: 60,
-                  fontWeight: FontWeight.bold,
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 16),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "organize your calls",
+                      style: TextStyle(
+                        fontSize: 50,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    SizedBox(
+                      height: 8,
+                    ),
+                    Text(
+                      "and be ",
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        color: Color.fromARGB(255, 191, 191, 192),
+                      ),
+                    ),
+                    Text(
+                      "reminded to call",
+                      style: TextStyle(
+                        fontSize: 50,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
                 ),
               ),
-              Text(
-                "a text giving a brifed disccussion of athe app",
-                style: TextStyle(
-                  fontSize: 16,
+              SizedBox(
+                height: 16,
+              ),
+              SizedBox(
+                width: 600,
+                child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 16),
+                  child: Text(
+                    "an app that lets you organize the calls you want to make,reminds you to make them, and also let you choose how often you want to be reminded",
+                    style: TextStyle(
+                      fontSize: 16,
+                    ),
+                  ),
                 ),
               ),
             ],
           )),
+          SizedBox(
+            height: 8,
+          ),
           AppStoresActions(),
           SizedBox(
             height: 16,
