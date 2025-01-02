@@ -116,29 +116,29 @@ class _MyHomePageState extends State<MyHomePage> {
       body: ListView(
         //shrinkWrap: true,
         // mainAxisAlignment: MainAxisAlignment.center,
-        children: const <Widget>[
+        children: <Widget>[
           Align(
               child: Column(
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 60,
               ),
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: 16),
+                padding: const EdgeInsets.symmetric(horizontal: 16),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
+                    const Text(
                       "organize your calls",
                       style: TextStyle(
                         fontSize: 50,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 8,
                     ),
-                    Text(
+                    const Text(
                       "and be ",
                       style: TextStyle(
                         fontSize: 20,
@@ -146,20 +146,26 @@ class _MyHomePageState extends State<MyHomePage> {
                         color: Color.fromARGB(255, 191, 191, 192),
                       ),
                     ),
-                    Text(
-                      "reminded to call",
-                      style: TextStyle(
-                        fontSize: 50,
-                        fontWeight: FontWeight.bold,
+                    Container(
+                      decoration: const BoxDecoration(
+                          color: Color(0xFF3733FF),
+                          borderRadius: BorderRadius.all(Radius.circular(16))),
+                      padding: const EdgeInsets.symmetric(horizontal: 16),
+                      child: const Text(
+                        "reminded to call",
+                        style: TextStyle(
+                          fontSize: 50,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
                   ],
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 16,
               ),
-              SizedBox(
+              const SizedBox(
                 width: 600,
                 child: Padding(
                   padding: EdgeInsets.symmetric(horizontal: 16),
@@ -173,19 +179,19 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ],
           )),
-          SizedBox(
+          const SizedBox(
             height: 8,
           ),
-          AppStoresActions(),
-          SizedBox(
+          const AppStoresActions(),
+          const SizedBox(
             height: 16,
           ),
-          AppImagesWidget(),
-          FeaturesListing(
+          const AppImagesWidget(),
+          const FeaturesListing(
             items: features,
           ),
-          AppStoresActions(),
-          BottomPageActions(),
+          const AppStoresActions(),
+          const BottomPageActions(),
         ],
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
