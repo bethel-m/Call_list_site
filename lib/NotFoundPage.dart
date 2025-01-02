@@ -10,7 +10,7 @@ class Notfoundpage extends StatelessWidget {
       appBar: getAppBAr(context),
       body: const Center(
         child: Text(
-          "404 NOT FOUND",
+          "404 - PAGE NOT FOUND",
           style: TextStyle(color: Colors.white, fontSize: 30),
         ),
       ),
