@@ -39462,7 +39462,7 @@ A.Bq.prototype={
 Yz(a,b,c){var s
 if(b==null)return B.ag
 s=A.kK(b,1,B.b8,null)
-return new A.hS(B.hm,1,null,b.length>12?B.UP:s,null)},
+return new A.hS(B.hm,1,null,b.length>12?B.UQ:s,null)},
 L(a){var s=this.d
 if(s instanceof A.l2&&!s.gwK()){s.toString
 s=t.My.a(s).wk$
@@ -74736,7 +74736,7 @@ A.S9.prototype={}
 A.qS.prototype={
 L(a){var s=null,r=this.c
 r=r==null?s:"GoException: "+r.a
-return A.ao8(!0,A.jQ(A.qx(A.b([B.UT,B.jw,A.kK(r==null?"page not found":r,s,s,s),B.jw,new A.Bu(new A.a_y(a),B.UV,s)],t.p),B.ab,B.bz,B.aX),s,s),!0)}}
+return A.ao8(!0,A.jQ(A.qx(A.b([B.UU,B.jw,A.kK(r==null?"page not found":r,s,s,s),B.jw,new A.Bu(new A.a_y(a),B.UV,s)],t.p),B.ab,B.bz,B.aX),s,s),!0)}}
 A.a_y.prototype={
 $0(){return A.lE(this.a).ju("/",null)},
 $S:0}
@@ -82212,10 +82212,10 @@ B.wy=new A.zE("assets/images/list.png",null)
 B.AV=new A.f9(B.A,null,null,B.wy,null)
 B.UN=new A.cS("Terms and Conditions",null,B.e7,null,null,null,null,null)
 B.AW=new A.f9(B.A,null,null,B.UN,null)
-B.US=new A.cS("Change Log",null,B.e7,null,null,null,null,null)
-B.AX=new A.f9(B.A,null,null,B.US,null)
-B.UU=new A.cS("404 NOT FOUND",null,B.e7,null,null,null,null,null)
-B.AY=new A.f9(B.A,null,null,B.UU,null)
+B.UT=new A.cS("Change Log",null,B.e7,null,null,null,null,null)
+B.AX=new A.f9(B.A,null,null,B.UT,null)
+B.UP=new A.cS("404 - PAGE NOT FOUND",null,B.e7,null,null,null,null,null)
+B.AY=new A.f9(B.A,null,null,B.UP,null)
 B.V_=new A.cS("Privacy Screen",null,B.e7,null,null,null,null,null)
 B.AZ=new A.f9(B.A,null,null,B.V_,null)
 B.B_=new A.qh(null)
@@ -82325,10 +82325,10 @@ B.aW=new A.IM(0,"min")
 B.cD=new A.qE(0,"start")
 B.b_=new A.Mn(1,"down")
 B.fY=new A.k(!0,B.i,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
-B.UR=new A.cS("Download on the",null,B.fY,null,null,null,null,null)
+B.US=new A.cS("Download on the",null,B.fY,null,null,null,null,null)
 B.xK=new A.k(!0,B.i,null,null,null,null,24,B.be,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
 B.UY=new A.cS("App Store",null,B.xK,null,null,null,null,null)
-B.IL=A.b(s([B.UR,B.UY]),t.p)
+B.IL=A.b(s([B.US,B.UY]),t.p)
 B.Ec=new A.lq(B.ak,B.au,B.aW,B.cD,null,B.b_,null,B.IL,null)
 B.bz=new A.lW(2,"center")
 B.aX=new A.IM(1,"max")
@@ -82338,9 +82338,9 @@ B.Pc=new A.im(null,12,null,null)
 B.kx=new A.vA(null)
 B.Iw=A.b(s([B.wi,B.Pc,B.kx]),t.p)
 B.Ed=new A.lq(B.ak,B.bz,B.aX,B.ab,null,B.b_,null,B.Iw,null)
-B.UQ=new A.cS("GET IT ON",null,B.fY,null,null,null,null,null)
+B.UR=new A.cS("GET IT ON",null,B.fY,null,null,null,null,null)
 B.UW=new A.cS("Play Store",null,B.xK,null,null,null,null,null)
-B.HJ=A.b(s([B.UQ,B.UW]),t.p)
+B.HJ=A.b(s([B.UR,B.UW]),t.p)
 B.Ee=new A.lq(B.ak,B.au,B.aW,B.cD,null,B.b_,null,B.HJ,null)
 B.Eg=new A.ny(!1)
 B.Eh=new A.ny(!0)
@@ -84719,8 +84719,8 @@ B.TT=new A.k(!0,B.z,null,"Roboto",B.G,null,null,null,null,null,null,null,null,nu
 B.Th=new A.k(!0,B.m,null,"Roboto",B.G,null,null,null,null,null,null,null,null,null,null,null,null,B.e,null,null,null,"blackHelsinki labelMedium",null,null,null,null)
 B.Tr=new A.k(!0,B.m,null,"Roboto",B.G,null,null,null,null,null,null,null,null,null,null,null,null,B.e,null,null,null,"blackHelsinki labelSmall",null,null,null,null)
 B.UM=new A.di(B.Ue,B.Rf,B.Sh,B.Tg,B.Tt,B.QF,B.RR,B.QJ,B.SY,B.TG,B.Ss,B.TI,B.TT,B.Th,B.Tr)
-B.UP=new A.cS("Back",null,null,null,null,null,null,null)
-B.UT=new A.cS("Page Not Found",null,B.fZ,null,null,null,null,null)
+B.UQ=new A.cS("Back",null,null,null,null,null,null,null)
+B.UU=new A.cS("Page Not Found",null,B.fZ,null,null,null,null,null)
 B.UV=new A.cS("Go to home page",null,B.fY,null,null,null,null,null)
 B.UX=new A.cS("\xa9Bethel  2025",null,B.fY,null,null,null,null,null)
 B.xQ=new A.cS("Home",null,null,null,null,null,null,null)
