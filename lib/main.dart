@@ -41,21 +41,20 @@ class MyApp extends StatelessWidget {
   final GoRouter _router = GoRouter(
     routes: [
       GoRoute(
-          path: MyHomePage.path,
-          builder: (context, state) => const MyHomePage(),
-          routes: [
-            GoRoute(
-              path: PrivacyScreen.path,
-              builder: (context, state) => const PrivacyScreen(),
-            ),
-            GoRoute(
-              path: TermsAndConditionsScreen.path,
-              builder: (context, state) => const TermsAndConditionsScreen(),
-            ),
-          ]),
+        path: MyHomePage.path,
+        builder: (context, state) => const MyHomePage(),
+      ),
+      GoRoute(
+        path: PrivacyScreen.path,
+        builder: (context, state) => const PrivacyScreen(),
+      ),
       GoRoute(
         path: ContactScreen.path,
         builder: (context, state) => const ContactScreen(),
+      ),
+      GoRoute(
+        path: TermsAndConditionsScreen.path,
+        builder: (context, state) => const TermsAndConditionsScreen(),
       ),
       GoRoute(
         path: ChangeLogScreen.path,
