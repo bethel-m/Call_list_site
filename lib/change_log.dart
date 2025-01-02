@@ -12,7 +12,7 @@ class ChangeLogScreen extends StatelessWidget {
       body: const Center(
         child: Text(
           "Change Log",
-          style: TextStyle(color: Colors.white, fontSize: 30),
+          style: TextStyle(fontSize: 30),
         ),
       ),
     );

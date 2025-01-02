@@ -71,6 +71,10 @@ class MyApp extends StatelessWidget {
       routerConfig: _router,
       title: 'Call List',
       theme: ThemeData(
+        textTheme: Theme.of(context).textTheme.apply(
+              bodyColor: Colors.white,
+              displayColor: Colors.white,
+            ),
         scaffoldBackgroundColor: Color(0xFF16181D),
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
@@ -133,19 +137,16 @@ class _MyHomePageState extends State<MyHomePage> {
                 height: 60,
               ),
               Text(
-                selectionColor: Colors.white,
                 "Get Reminded to call",
                 style: TextStyle(
                   fontSize: 60,
                   fontWeight: FontWeight.bold,
-                  color: Colors.white,
                 ),
               ),
               Text(
                 "a text giving a brifed disccussion of athe app",
                 style: TextStyle(
                   fontSize: 16,
-                  color: Colors.white,
                 ),
               ),
             ],
@@ -184,29 +185,34 @@ class BottomPageActions extends StatelessWidget {
         children: [
           const Text(
             "©Bethel  2025",
-            style: TextStyle(
-              color: Colors.white,
-            ),
+            style: TextStyle(),
           ),
           const SizedBox(width: 24),
           BottomLink(
-            tooltip: "https/callList/Contact",
+            tooltip: "https://bethel-m.github.io/Call_list_site/",
+            linkName: "Home",
+            onPressed: () {
+              context.go(MyHomePage.path);
+            },
+          ),
+          BottomLink(
+            tooltip: "https://bethel-m.github.io/Call_list_site/Contact",
             linkName: "Contact",
             onPressed: () {
               context.go(ContactScreen.path);
             },
           ),
+          // const SizedBox(width: 24),
+          // BottomLink(
+          //   tooltip: "https://bethel-m.github.io/Call_list_site/ChangeLog",
+          //   linkName: "Change Log",
+          //   onPressed: () {
+          //     context.go(ChangeLogScreen.path);
+          //   },
+          // ),
           const SizedBox(width: 24),
           BottomLink(
-            tooltip: "https/callList/ChangeLog",
-            linkName: "Change Log",
-            onPressed: () {
-              context.go(ChangeLogScreen.path);
-            },
-          ),
-          const SizedBox(width: 24),
-          BottomLink(
-            tooltip: "https/callList/Privacy",
+            tooltip: "https://bethel-m.github.io/Call_list_site/Privacy",
             linkName: "Privacy",
             onPressed: () {
               context.go(PrivacyScreen.path);
@@ -214,7 +220,8 @@ class BottomPageActions extends StatelessWidget {
           ),
           const SizedBox(width: 24),
           BottomLink(
-            tooltip: "https/callList/TermsAndConditions",
+            tooltip:
+                "https://bethel-m.github.io/Call_list_site/TermsAndConditions",
             linkName: "TOS",
             onPressed: () {
               context.go(TermsAndConditionsScreen.path);
@@ -292,8 +299,8 @@ class BottomLink extends StatelessWidget {
             linkName,
             style: const TextStyle(
               decoration: TextDecoration.underline,
-              color: Colors.white,
               decorationColor: Colors.white,
+              color: Colors.white,
             ),
           )),
     );
@@ -401,7 +408,6 @@ class _PlayStoreWidgetState extends State<PlayStoreWidget> {
                         style: TextStyle(
                           fontSize: 24,
                           fontWeight: FontWeight.bold,
-                          color: Colors.white,
                         ),
                       ),
                     ],
@@ -485,9 +491,9 @@ class _AppStoreWidgetState extends State<AppStoreWidget> {
                         Text(
                           "App Store",
                           style: TextStyle(
-                              fontSize: 24,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white),
+                            fontSize: 24,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ],
                     ),
@@ -508,7 +514,6 @@ class _AppStoreWidgetState extends State<AppStoreWidget> {
               child: Text(
                 'Coming Soon',
                 style: TextStyle(
-                  color: Colors.white,
                   fontSize: 14,
                   fontWeight: FontWeight.bold,
                 ),
@@ -591,7 +596,6 @@ class FeatureTextWidget extends StatelessWidget {
                   style: const TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
-                    color: Colors.white,
                   ),
                 ),
               ),
