@@ -59,8 +59,15 @@ print_success "CanvasKit setup completed"
 # Move built files to root
 print_status "Moving built files to root..."
 mv -f build/web/* .
+cp build/web/404.html .
 rm -rf build
 print_success "Files moved successfully"
+
+# # Move built files to root
+# print_status "Moving built files to root..."
+# mv -f build/web/* .
+# rm -rf build
+# print_success "Files moved successfully"
 
 # Stage and commit changes
 print_status "Committing changes..."
