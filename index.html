@@ -24,20 +24,11 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   <meta name="apple-mobile-web-app-title" content="call_list_site">
-  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+  <link rel="apple-touch-icon" href="my_icon.svg">
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="my_icon.svg"/>
-  <script>
-    // Check if we have a redirect stored
-    window.addEventListener('load', function() {
-      var redirect = sessionStorage.getItem('redirect');
-      if (redirect) {
-        sessionStorage.removeItem('redirect');
-        window.history.replaceState(null, null, redirect);
-      }
-    });
-  </script>
+
   <title>call_list_site</title>
   <link rel="manifest" href="manifest.json">
 </head>
