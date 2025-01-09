@@ -5,7 +5,7 @@ import 'package:url_launcher/url_launcher.dart';
 
 const _twitter = 'https://x.com/BethelMmadu';
 const _mail = 'mailto:bethelcletus87@gmail.com';
-Future<void> _launchUrl(String url) async {
+Future<void> urlLaunch(String url) async {
   final uri = Uri.parse(url);
   if (!await launchUrl(uri)) {
     throw Exception('Could not launch $url');
@@ -100,14 +100,14 @@ class ContactScreen extends StatelessWidget {
                         title: "twitter",
                         tooltip: _twitter,
                         onPressed: () {
-                          _launchUrl(_twitter);
+                          urlLaunch(_twitter);
                         },
                       ),
                       ContactButton(
                         tooltip: _mail,
                         title: "email",
                         onPressed: () {
-                          _launchUrl(_mail);
+                          urlLaunch(_mail);
                         },
                       ),
                     ],

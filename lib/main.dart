@@ -383,7 +383,11 @@ class _PlayStoreWidgetState extends State<PlayStoreWidget> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        const playStoreUrl =
+            "https://play.google.com/store/apps/details?id=com.BravoApps.call_list";
+        urlLaunch(playStoreUrl);
+      },
       child: MouseRegion(
         cursor: SystemMouseCursors.click,
         onHover: (event) => {
