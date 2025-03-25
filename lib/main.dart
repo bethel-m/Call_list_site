@@ -1,8 +1,7 @@
-import 'package:call_list_site/not_found_page.dart';
 import 'package:call_list_site/change_log.dart';
 import 'package:call_list_site/components.dart';
 import 'package:call_list_site/contacts.dart';
-
+import 'package:call_list_site/not_found_page.dart';
 import 'package:call_list_site/privacy_screen.dart';
 import 'package:call_list_site/tos_screen.dart';
 import 'package:flutter/material.dart';
@@ -16,12 +15,20 @@ void main() {
 }
 
 const String assetName = 'assets/svg/my_icon.svg';
+
 final Widget svg = SvgPicture.asset(
   assetName,
   semanticsLabel: 'Dart Logo',
   width: 50,
   height: 50,
 );
+final Widget downloadIcon = SvgPicture.asset('assets/svg/download.svg',
+    semanticsLabel: 'Dart Logo',
+    width: 24,
+    height: 24,
+//  color: Colors.white,
+// colorFilter: ,
+    colorFilter: const ColorFilter.mode(Colors.white, BlendMode.srcIn));
 final Widget playstore = SvgPicture.asset(
   'assets/svg/play-store.svg',
   semanticsLabel: 'Dart Logo',
@@ -38,6 +45,7 @@ final Widget appstore = SvgPicture.asset(
 
 class MyApp extends StatelessWidget {
   MyApp({super.key});
+
   final GoRouter _router = GoRouter(
     routes: [
       GoRoute(
@@ -88,7 +96,9 @@ class MyHomePage extends StatefulWidget {
   const MyHomePage({
     super.key,
   });
+
   static const path = '/';
+
   // This widget is the home page of your application. It is stateful, meaning
   // that it has a State object (defined below) that contains fields that affect
   // how it looks.
@@ -180,7 +190,14 @@ class _MyHomePageState extends State<MyHomePage> {
             ],
           )),
           const SizedBox(
-            height: 8,
+            height: 32,
+          ),
+          const Align(
+            alignment: Alignment.center,
+            child: DownloadButton(),
+          ),
+          const SizedBox(
+            height: 32,
           ),
           const AppStoresActions(),
           const SizedBox(
@@ -317,9 +334,11 @@ class BottomLink extends StatelessWidget {
     required this.linkName,
     required this.onPressed,
   });
+
   final String tooltip;
   final String linkName;
   final void Function() onPressed;
+
   @override
   Widget build(BuildContext context) {
     return Tooltip(
@@ -382,75 +401,96 @@ class _PlayStoreWidgetState extends State<PlayStoreWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        const playStoreUrl =
-            "https://play.google.com/store/apps/details?id=com.BravoApps.call_list";
-        urlLaunch(playStoreUrl);
-      },
-      child: MouseRegion(
-        cursor: SystemMouseCursors.click,
-        onHover: (event) => {
-          setState(() {
-            isHovering = true;
-          })
-        },
-        onExit: (event) {
-          setState(() {
-            isHovering = false;
-          });
-        },
-        onEnter: (event) {},
-        child: Tooltip(
-          message: "Google play store",
-          child: AnimatedContainer(
-              duration: Durations.short4,
-              padding: EdgeInsets.symmetric(
-                horizontal: isHovering ? 20 : 16,
-                vertical: 8,
-              ),
-              decoration: BoxDecoration(
-                color: Colors.black,
-                border: Border.all(
-                    color: isHovering
-                        ? Colors.white
-                        : const Color.fromARGB(255, 82, 41, 41)),
-                borderRadius: BorderRadius.circular(16),
-                boxShadow: [
-                  BoxShadow(
-                    color: const Color.fromARGB(255, 255, 255, 255)
-                        .withOpacity(0.1),
-                    blurRadius: isHovering ? 8 : 0,
-                    offset: Offset(0, isHovering ? 4 : 0),
+    return Stack(
+      children: [
+        GestureDetector(
+          onTap: () {
+            // const playStoreUrl =
+            //     "https://play.google.com/store/apps/details?id=com.BravoApps.call_list";
+            // urlLaunch(playStoreUrl);
+          },
+          child: MouseRegion(
+            cursor: SystemMouseCursors.click,
+            onHover: (event) => {
+              setState(() {
+                isHovering = true;
+              })
+            },
+            onExit: (event) {
+              setState(() {
+                isHovering = false;
+              });
+            },
+            onEnter: (event) {},
+            child: Tooltip(
+              message: "Google play store",
+              child: AnimatedContainer(
+                  duration: Durations.short4,
+                  padding: EdgeInsets.symmetric(
+                    horizontal: isHovering ? 20 : 16,
+                    vertical: 8,
                   ),
-                ],
-              ),
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  playstore,
-                  const SizedBox(width: 12),
-                  const Column(
-                    mainAxisSize: MainAxisSize.min,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "GET IT ON",
-                        style: TextStyle(color: Colors.white),
-                      ),
-                      Text(
-                        "Play Store",
-                        style: TextStyle(
-                          fontSize: 24,
-                          fontWeight: FontWeight.bold,
-                        ),
+                  decoration: BoxDecoration(
+                    color: Colors.black,
+                    border: Border.all(
+                        color: isHovering
+                            ? Colors.white
+                            : const Color.fromARGB(255, 82, 41, 41)),
+                    borderRadius: BorderRadius.circular(16),
+                    boxShadow: [
+                      BoxShadow(
+                        color: const Color.fromARGB(255, 255, 255, 255)
+                            .withOpacity(0.1),
+                        blurRadius: isHovering ? 8 : 0,
+                        offset: Offset(0, isHovering ? 4 : 0),
                       ),
                     ],
                   ),
-                ],
-              )),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      playstore,
+                      const SizedBox(width: 12),
+                      const Column(
+                        mainAxisSize: MainAxisSize.min,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "GET IT ON",
+                            style: TextStyle(color: Colors.white),
+                          ),
+                          Text(
+                            "Play Store",
+                            style: TextStyle(
+                              fontSize: 24,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  )),
+            ),
+          ),
         ),
-      ),
+        Positioned.fill(
+          child: Container(
+            decoration: BoxDecoration(
+              color: Colors.black.withOpacity(0.7),
+              borderRadius: BorderRadius.circular(16),
+            ),
+            child: const Center(
+              child: Text(
+                'Coming Soon',
+                style: TextStyle(
+                  fontSize: 14,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+          ),
+        ),
+      ],
     );
   }
 }
@@ -561,6 +601,153 @@ class _AppStoreWidgetState extends State<AppStoreWidget> {
   }
 }
 
+class DownloadButton extends StatefulWidget {
+  const DownloadButton({
+    super.key,
+  });
+
+  @override
+  State<DownloadButton> createState() => _DownloadButton();
+}
+
+class _DownloadButton extends State<DownloadButton> {
+  bool isHovering = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        // const playStoreUrl =
+        //     "https://play.google.com/store/apps/details?id=com.BravoApps.call_list";
+        // urlLaunch(playStoreUrl);
+        const appDownloadUrl = "https://github.com/bethel-m/Call_list_site/releases/download/v1.0.6%2B1/app-release.apk";
+        urlLaunch(appDownloadUrl);
+
+      },
+      child: MouseRegion(
+        cursor: SystemMouseCursors.click,
+        onHover: (event) => {
+          setState(() {
+            isHovering = true;
+          })
+        },
+        onExit: (event) {
+          setState(() {
+            isHovering = false;
+          });
+        },
+        onEnter: (event) {},
+        child: Tooltip(
+          message: "download app for android",
+          child: AnimatedContainer(
+              duration: Durations.short4,
+              padding: EdgeInsets.symmetric(
+                horizontal: isHovering ? 20 : 16,
+                vertical: 8,
+              ),
+              decoration: BoxDecoration(
+                color: Colors.black,
+                border: Border.all(
+                    color: isHovering
+                        ? Colors.white
+                        : const Color.fromARGB(255, 82, 41, 41)),
+                borderRadius: BorderRadius.circular(16),
+                boxShadow: [
+                  BoxShadow(
+                    color: const Color.fromARGB(255, 255, 255, 255)
+                        .withOpacity(0.1),
+                    blurRadius: isHovering ? 8 : 0,
+                    offset: Offset(0, isHovering ? 4 : 0),
+                  ),
+                ],
+              ),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  downloadIcon,
+                  const SizedBox(width: 12),
+                  const Column(
+                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "FOR ANDROID",
+                        style: TextStyle(color: Colors.white),
+                      ),
+                      Text(
+                        "Download App Apk",
+                        style: TextStyle(
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              )),
+        ),
+      ),
+    );
+    //   GestureDetector(
+    //   onTap: () {},
+    //   child: MouseRegion(
+    //     cursor: SystemMouseCursors.click,
+    //     onHover: (event) => {
+    //       setState(() {
+    //         isHovering = true;
+    //       })
+    //     },
+    //     onExit: (event) {
+    //       setState(() {
+    //         isHovering = false;
+    //       });
+    //     },
+    //     onEnter: (event) {},
+    //     child: Tooltip(
+    //       message: "Download android App apk",
+    //       child: AnimatedContainer(
+    //         duration: Durations.short4,
+    //         padding: EdgeInsets.symmetric(
+    //           horizontal: isHovering ? 20 : 16,
+    //           vertical: 8,
+    //         ),
+    //         decoration: BoxDecoration(
+    //           color: Colors.black,
+    //           border: Border.all(
+    //               color: isHovering
+    //                   ? Colors.white
+    //                   : const Color.fromARGB(255, 167, 158, 158)),
+    //           borderRadius: BorderRadius.circular(16),
+    //           boxShadow: [
+    //             BoxShadow(
+    //               color: const Color.fromARGB(255, 255, 255, 255)
+    //                   .withOpacity(0.1),
+    //               blurRadius: isHovering ? 8 : 0,
+    //               offset: Offset(0, isHovering ? 4 : 0),
+    //             ),
+    //           ],
+    //         ),
+    //         child: Row(
+    //           mainAxisSize: MainAxisSize.min,
+    //           children: [
+    //             downloadIcon,
+    //             const SizedBox(width: 12),
+    //            const Text(
+    //               "Download App Apk",
+    //               style: TextStyle(
+    //                 fontSize: 24,
+    //                 fontWeight: FontWeight.bold,
+    //               ),
+    //             ),
+    //           ],
+    //         ),
+    //       ),
+    //     ),
+    //   ),
+    // );
+  }
+}
+
 const List<FeatureTextWidget> features = [
   FeatureTextWidget(
       icon: Icons.list,
@@ -599,6 +786,7 @@ class FeatureTextWidget extends StatelessWidget {
   final String featureTopic;
   final String featureText;
   final IconData icon;
+
   const FeatureTextWidget({
     required this.featureText,
     required this.featureTopic,
@@ -652,6 +840,7 @@ class FeatureTextWidget extends StatelessWidget {
 
 class SampleImage extends StatelessWidget {
   final String imagePath;
+
   const SampleImage(
     this.imagePath, {
     super.key,
